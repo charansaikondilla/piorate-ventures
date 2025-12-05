@@ -9,6 +9,15 @@ export default defineConfig({
     build: {
         outDir: 'dist',
         assetsDir: 'assets',
-        sourcemap: true
+        sourcemap: true,
+        rollupOptions: {
+            input: {
+                main: 'index.html',
+                automation: 'automation.html',
+                branding: 'branding.html',
+                website: 'website.html',
+                portfolio: 'website-portfolio.html'
+            }
+        }
     }
 })
