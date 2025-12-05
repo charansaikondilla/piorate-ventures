@@ -1,3 +1,8 @@
+import './style.css';
+import './services-fix.css';
+import './image-fixes.css';
+import './preloader.css';
+
 // ==================================
 // AI AGENCY - MAIN UTILITIES
 // UI enhancements and helper functions
@@ -5,9 +10,14 @@
 // ==================================
 
 // Preloader Logic
-window.addEventListener('load', () => {
+// Preloader Logic
+const hidePreloader = () => {
     document.body.classList.add('loaded');
-});
+};
+
+window.addEventListener('load', hidePreloader);
+// Fallback: Force hide after 3 seconds to prevent getting stuck
+setTimeout(hidePreloader, 3000);
 
 
 // ==================================

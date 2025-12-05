@@ -1,10 +1,22 @@
+import './style.css';
+import './detail-pages.css';
+import './detail-icons.css';
+import './image-fixes.css';
+import './preloader.css';
+import './modal.css'; // Including checks for varying pages
+import './portfolio-section.css';
+
 // Detail Page Animations
 // GSAP will be registered in DOMContentLoaded
 
 // Preloader Logic
-window.addEventListener('load', () => {
+const hidePreloader = () => {
     document.body.classList.add('loaded');
-});
+};
+
+window.addEventListener('load', hidePreloader);
+// Fallback: Force hide after 3 seconds to prevent getting stuck
+setTimeout(hidePreloader, 3000);
 
 // Animate elements on scroll
 const animateOnScroll = () => {

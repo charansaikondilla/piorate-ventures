@@ -1,3 +1,11 @@
+import './style.css';
+import './detail-pages.css';
+import './detail-icons.css';
+import './image-fixes.css';
+import './preloader.css';
+import './portfolio-section.css';
+import './modal.css';
+
 /* ==========================================================================
    Portfolio Animations & Interactions
    GSAP ScrollTrigger, 3D Tilt Effects, Modal Controller
