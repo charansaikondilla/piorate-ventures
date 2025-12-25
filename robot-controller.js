@@ -17,13 +17,17 @@ class RobotController {
         this.isHovered = false;
         this.scrollProgress = 0;
 
-        // Configuration
+        // Device detection
+        this.isMobile = window.innerWidth < 768;
+        this.isTouch = 'ontouchstart' in window;
+
+        // Configuration - adjusted for mobile
         this.config = {
-            mouseInfluence: 25,        // Max rotation degrees from mouse
-            smoothness: 0.15,          // Lerp smoothness (0-1)
-            magneticRange: 300,        // Pixels for magnetic effect
-            floatAmplitude: 30,        // Floating motion range
-            floatSpeed: 3,             // Floating animation speed
+            mouseInfluence: this.isMobile ? 15 : 25,        // Reduced on mobile
+            smoothness: this.isMobile ? 0.1 : 0.15,          // Faster response on mobile
+            magneticRange: this.isMobile ? 200 : 300,        // Smaller range on mobile
+            floatAmplitude: this.isMobile ? 15 : 30,         // Reduced floating motion
+            floatSpeed: this.isMobile ? 4 : 3,               // Slightly slower on mobile
         };
 
         this.init();
@@ -50,7 +54,26 @@ class RobotController {
             this.updateMousePosition(e);
         });
 
-        // Container hover effects
+        // Add touch support for mobile
+        if (this.isTouch) {
+            document.addEventListener('touchmove', (e) => {
+                const touch = e.touches[0];
+                this.updateMousePosition(touch);
+            }, { passive: true });
+
+            // Touch start/end on container
+            this.container.addEventListener('touchstart', () => {
+                this.isHovered = true;
+                this.onRobotHover();
+            }, { passive: true });
+
+            this.container.addEventListener('touchend', () => {
+                this.isHovered = false;
+                this.onRobotLeave();
+            }, { passive: true });
+        }
+
+        // Container hover effects (desktop)
         this.container.addEventListener('mouseenter', () => {
             this.isHovered = true;
             this.onRobotHover();

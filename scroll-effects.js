@@ -22,15 +22,30 @@ class ScrollEffects {
     init() {
         gsap.registerPlugin(ScrollTrigger);
 
+        // Detect mobile for performance optimizations
+        this.isMobile = window.innerWidth < 768;
+        this.isTouch = 'ontouchstart' in window;
+
+        // Adjust config for mobile
+        if (this.isMobile) {
+            this.config.parallaxSpeed = 0.3; // Reduced parallax
+            this.config.rotationMultiplier = 180; // Half rotation
+            this.config.scaleRange = 0.15; // Smaller scale changes
+        }
+
         // Setup all scroll-driven animations
         this.setupDramaticEntry();
         this.setupScrollRotation();
         this.setupParallaxEffect();
         this.setupMilestoneAnimations();
         this.setupFloatingIconAnimations();
-        this.setupVelocityGlow();
 
-        console.log('📜 Scroll Effects Initialized');
+        // Only enable velocity glow on desktop (high performance cost)
+        if (!this.isMobile) {
+            this.setupVelocityGlow();
+        }
+
+        console.log(this.isMobile ? '📱 Scroll Effects (Mobile Mode)' : '📜 Scroll Effects Initialized');
     }
 
     // ==========================================
@@ -87,7 +102,11 @@ class ScrollEffects {
                 this.robotController.updateScrollProgress(progress);
 
                 // Complex rotation based on scroll
-                const rotateY = progress * this.config.rotationMultiplier;
+                // DESKTOP PARITY: Full intensity for all devices
+                const rotationMultiplier = this.config.rotationMultiplier;
+
+                const rotateY = progress * rotationMultiplier;
+                // Full 20 degree tilt even on mobile
                 const rotateX = Math.sin(progress * Math.PI * 2) * 20;
                 const scale = 1 + (Math.sin(progress * Math.PI * 4) * this.config.scaleRange);
 

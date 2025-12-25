@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Branding | AI Agency</title>
+    <meta name="description"
+        content="Personal Branding Services by Piorate Ventures. Build your authority, grow your influence, and become the go-to expert in your industry with strategic branding.">
+    <title>Personal Branding | Piorate Ventures</title>
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
     <link rel="stylesheet" href="style.css">
@@ -12,6 +14,8 @@
     <link rel="stylesheet" href="detail-pages.css">
     <link rel="stylesheet" href="image-fixes.css">
     <link rel="stylesheet" href="preloader.css">
+    <link rel="stylesheet" href="mobile-optimizations.css">
+    <link rel="stylesheet" href="detail-mobile.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 </head>
@@ -21,7 +25,7 @@
     <div id="preloader">
         <div class="loader-content">
             <div class="loader-circle"></div>
-            <div class="loader-text">AI Agency</div>
+            <div class="loader-text">Piorate Ventures</div>
         </div>
     </div>
 
@@ -41,11 +45,11 @@
                 <div class="marquee-item">PERSONAL BRANDING</div>
             </div>
             <div class="detail-content-wrapper fade-up">
-                <span class="premium-badge">Authority Building</span>
-                <h1 class="premium-title">Strategic<br>Prominence</h1>
+                <span class="premium-badge">Personal Brand Building</span>
+                <h1 class="premium-title">Build Your<br>Authority</h1>
                 <p class="premium-subtitle">
-                    Architecting your digital legacy with data-driven personal branding.<br>
-                    Become the undeniable authority in your industry.
+                    Become the go-to expert in your field. We help entrepreneurs and professionals<br>
+                    build powerful personal brands that attract opportunities and establish lasting credibility.
                 </p>
                 <div class="scroll-indicator">
                     <div class="mouse">
@@ -188,11 +192,18 @@
         <!-- CTA Section -->
         <section class="container parallax-section">
             <div class="cta-content fade-up">
-                <h2>Claim Your Stage</h2>
-                <p>The world is waiting for your voice.</p>
-                <div class="cta-buttons">
-                    <button class="btn btn-primary btn-large">Launch Your Brand</button>
-                </div>
+                <h2>Join Now & <span class="glow-text">We'll Contact You</span></h2>
+                <p>Leave your details below and our team will reach out within 24 hours.</p>
+                <form id="contactForm" class="contact-form service-form">
+                    <input type="text" id="contactName" name="name" placeholder="Your Name" class="input" required>
+                    <input type="email" id="contactEmail" name="email" placeholder="Your Email" class="input" required>
+                    <input type="tel" id="contactPhone" name="phone" placeholder="Your Phone (optional)" class="input">
+                    <textarea id="contactMessage" name="message" placeholder="Tell us about your project..."
+                        class="input" required></textarea>
+                    <button type="submit" id="submitBtn" class="btn btn-primary btn-large">Submit & Get
+                        Contacted</button>
+                    <div id="formStatus" class="form-status"></div>
+                </form>
             </div>
         </section>
 
@@ -201,8 +212,8 @@
             <div class="container">
                 <div class="footer-content">
                     <div class="footer-brand">
-                        <img src="Robo Single Colour no bg 1.png" alt="AI Agency" class="footer-logo">
-                        <p>© 2025 AI Agency. All rights reserved.</p>
+                        <img src="profile.jpg" alt="Piorate Ventures" class="footer-logo profile-logo">
+                        <p>© 2025 Piorate Ventures. All rights reserved.</p>
                     </div>
                     <div class="footer-links">
                         <a href="index.html#services">Services</a>
@@ -217,6 +228,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script type="module" src="parallax.js"></script>
     <script type="module" src="detail-animations.js"></script>
+
+    <script src="form-handler.js"></script>
 </body>
 
 </html>

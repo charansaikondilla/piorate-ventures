@@ -286,18 +286,26 @@ function setupPerformanceOptimizations() {
 
     // Optimize for mobile
     if (window.innerWidth < 768) {
-        console.log('📱 Mobile detected - optimizing animations');
+        console.log('📱 Mobile detected - optimizing animations for performance');
 
-        // Reduce particle count
+        // Reduce particle count significantly
         const particles = document.querySelectorAll('.particle');
         particles.forEach((particle, index) => {
-            if (index > 10) particle.remove();
+            if (index > 6) particle.remove();
         });
 
-        // Simplify scroll effects
+        // Simplify scroll effects for smoother performance
         ScrollTrigger.config({
             limitCallbacks: true,
-            syncInterval: 100
+            syncInterval: 150 // Reduce callback frequency
+        });
+
+        // Reduce GSAP animations for battery life
+        gsap.globalTimeline.timeScale(0.9);
+
+        // Disable complex hover effects - rely on CSS :active instead
+        document.querySelectorAll('.service-card, .premium-card').forEach(card => {
+            card.style.transition = 'transform 0.2s ease, border-color 0.2s ease';
         });
     }
 }

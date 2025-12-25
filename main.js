@@ -4,7 +4,7 @@ import './image-fixes.css';
 import './preloader.css';
 
 // ==================================
-// AI AGENCY - MAIN UTILITIES
+// PIORATE VENTURES - MAIN UTILITIES
 // UI enhancements and helper functions
 // Robot animations handled by animations.js
 // ==================================
@@ -161,6 +161,41 @@ if (heroStats) statsObserver.observe(heroStats);
 // CONSOLE EASTER EGG
 // ==================================
 
-console.log('%c🤖 AI Agency ', 'background: linear-gradient(135deg, #8b5cf6, #d946ef); color: white; font-size: 24px; padding: 15px 30px; border-radius: 10px; font-weight: bold;');
+console.log('%c🤖 Piorate Ventures ', 'background: linear-gradient(135deg, #8b5cf6, #d946ef); color: white; font-size: 24px; padding: 15px 30px; border-radius: 10px; font-weight: bold;');
 console.log('%cTransform Your Business with AI', 'color: #8b5cf6; font-size: 16px; font-weight: bold;');
 console.log('%c💡 Robot Controls: S=Spin, B=Bounce, W=Wave, G=Glow', 'color: #22d3ee; font-size: 12px;');
+
+// ==================================
+// MOBILE MENU LOGIC
+// ==================================
+
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const navMenu = document.querySelector('.nav-menu');
+const navLinks = document.querySelectorAll('.nav-link');
+
+if (mobileMenuBtn && navMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenuBtn.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        document.body.classList.toggle('no-scroll'); // Optional: prevent scrolling when menu is open
+    });
+
+    // Close menu when clicking a link
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenuBtn.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.classList.remove('no-scroll');
+        });
+    });
+
+    // Close menu when clicking outside (optional, but good UX)
+    document.addEventListener('click', (e) => {
+        if (!navMenu.contains(e.target) && !mobileMenuBtn.contains(e.target) && navMenu.classList.contains('active')) {
+            mobileMenuBtn.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.classList.remove('no-scroll');
+        }
+    });
+}
+

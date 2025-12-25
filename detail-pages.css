@@ -7,8 +7,10 @@
    ================================== */
 
 .detail-hero-premium {
-    height: 100vh;
     width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    /* mobile friendly key */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -375,15 +377,55 @@
 
 @media (max-width: 768px) {
     .premium-title {
-        font-size: 3rem;
+        font-size: clamp(1.8rem, 6vw, 2.3rem);
+        /* more compact */
+        letter-spacing: -0.01em;
     }
 
     .hero-bg-text .marquee-item {
-        font-size: 20vw !important;
+        font-size: 10vw !important;
+        /* even smaller to be subtle */
+        opacity: 0.25 !important;
+    }
+
+    .detail-content-wrapper {
+        padding: 0 1rem;
+        /* maximize space */
+    }
+
+    .cta-content {
+        padding: 3rem 1.5rem;
     }
 
     .cta-content h2 {
-        font-size: 2.5rem;
+        font-size: 2rem;
+    }
+
+    .parallax-section {
+        padding: 4rem 1.5rem;
+    }
+
+    .premium-grid {
+        margin-top: 2rem;
+        gap: 1rem;
+        /* Desktop Parity: Try to fit 2 columns if possible */
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+
+    .premium-card {
+        padding: 1rem;
+        /* reduced padding allows 2-col to fit */
+    }
+
+    .workflow-step {
+        margin-bottom: 3rem;
+        padding: 1.5rem;
+    }
+
+    .step-visual {
+        width: 80px;
+        height: 80px;
+        flex: 0 0 80px;
     }
 
     .back-button span {
@@ -392,5 +434,14 @@
 
     .back-button {
         padding: 0.8rem;
+    }
+
+    .text-parallax-container {
+        height: 25vh;
+        /* slightly shorter */
+    }
+
+    .parallax-text-layer {
+        font-size: 12vw;
     }
 }

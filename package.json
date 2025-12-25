@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Premium dark-themed AI & Automation Agency website with 3D robot mascot",
   "type": "module",
+  "homepage": "./",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

@@ -66,7 +66,12 @@ function createMarquee(container, speed = 1, itemClass) {
     // Calculate copies needed
     const itemWidth = measureTextWidth(textContent, itemFont);
     const screenWidth = window.innerWidth;
-    const copies = Math.ceil((screenWidth * 2) / itemWidth) + 4; // Generous buffer
+
+    // DESKTOP PARITY: Use generous buffer for all devices
+    const buffer = 4;
+
+    // Always use standard density logic
+    const copies = Math.ceil((screenWidth * 2) / itemWidth) + buffer;
 
     const items = [];
     for (let i = 0; i < copies; i++) {

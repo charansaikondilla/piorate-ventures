@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Transform your business with cutting-edge AI solutions. Premium AI Website Development, Intelligent Automation, and Strategic Personal Branding services.">
-    <title>AI Agency | Elite AI Solutions for Modern Businesses</title>
+        content="Piorate Ventures: Expert Website Building, Personal Branding, and AI Automation services. Build stunning websites, establish brand authority, and automate your business growth.">
+    <title>Piorate Ventures | Elite AI Solutions for Modern Businesses</title>
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="services-fix.css">
     <link rel="stylesheet" href="image-fixes.css">
     <link rel="stylesheet" href="preloader.css">
+    <link rel="stylesheet" href="mobile-optimizations.css">
 </head>
 
 <body>
@@ -24,16 +25,23 @@
     <div id="preloader">
         <div class="loader-content">
             <div class="loader-circle"></div>
-            <div class="loader-text">AI Agency</div>
+            <div class="loader-text">Piorate Ventures</div>
         </div>
     </div>
 
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <img src="Robo Single Colour no bg 1.png" alt="AI Agency Robot" class="nav-logo">
-                <span class="brand-text">AI<span class="glow-text">Agency</span></span>
+                <img src="profile.jpg" alt="Piorate Ventures Robot" class="nav-logo profile-logo">
+                <span class="brand-text">Piorate<span class="glow-text">Ventures</span></span>
             </div>
+
+            <button class="mobile-menu-btn" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#services" class="nav-link">Services</a></li>
@@ -47,33 +55,34 @@
             <div class="hero-content">
                 <div class="hero-badge">
                     <span>🚀</span>
-                    <span>Your Elite AI Transformation Partner</span>
+                    <span>Website Building • Personal Branding • AI Automations</span>
                 </div>
                 <h1 class="hero-title">
-                    Elevate Your Enterprise with<br>
-                    <span class="glow-text">Next-Generation AI Solutions</span>
+                    Build Your Digital Empire with<br>
+                    <span class="glow-text">Piorate Ventures</span>
                 </h1>
                 <p class="hero-subtitle">
-                    We craft cutting-edge AI-powered digital experiences, architect sophisticated automation ecosystems,
-                    and cultivate influential personal brands that command authority in the modern business landscape.
+                    We help entrepreneurs, creators, and businesses establish a powerful online presence
+                    through stunning websites, strategic personal branding, and intelligent AI automation
+                    systems that work 24/7 for you.
                 </p>
                 <div class="hero-stats">
                     <div class="stat-item">
-                        <div class="stat-number">500+</div>
-                        <div class="stat-label">Successful Projects</div>
+                        <div class="stat-number">🌐</div>
+                        <div class="stat-label">Custom Websites</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number">98%</div>
-                        <div class="stat-label">Client Satisfaction</div>
+                        <div class="stat-number">👤</div>
+                        <div class="stat-label">Brand Authority</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number">24/7</div>
-                        <div class="stat-label">Premium Support</div>
+                        <div class="stat-number">⚡</div>
+                        <div class="stat-label">Smart Automation</div>
                     </div>
                 </div>
                 <div class="hero-cta">
-                    <button class="btn btn-primary">Begin Your Transformation</button>
-                    <button class="btn btn-secondary">Explore Our Work</button>
+                    <a href="#contact" class="btn btn-primary">Start Your Project</a>
+                    <a href="#services" class="btn btn-secondary">Explore Our Services</a>
                 </div>
             </div>
 
@@ -214,22 +223,27 @@
                     <p>Schedule a complimentary consultation and discover how our AI solutions can revolutionize your
                         business operations.</p>
                 </div>
-                <div class="contact-form">
-                    <input type="text" placeholder="Your Name" class="input">
-                    <input type="email" placeholder="Your Email" class="input">
-                    <textarea placeholder="Tell us about your vision..." class="input"></textarea>
-                    <button class="btn btn-primary btn-large">Request Consultation</button>
-                </div>
+                <form id="contactForm" class="contact-form">
+                    <input type="text" id="contactName" name="name" placeholder="Your Name" class="input" required>
+                    <input type="email" id="contactEmail" name="email" placeholder="Your Email" class="input" required>
+                    <input type="tel" id="contactPhone" name="phone" placeholder="Your Phone (optional)" class="input">
+
+                    <textarea id="contactMessage" name="message" placeholder="Tell us about your vision..."
+                        class="input" required></textarea>
+                    <button type="submit" class="btn btn-primary btn-large" id="submitBtn">Request Consultation</button>
+                    <div id="formStatus" class="form-status"></div>
+                </form>
             </div>
         </div>
     </section>
+
 
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <img src="Robo Single Colour no bg 1.png" alt="AI Agency" class="footer-logo">
-                    <p>© 2025 AI Agency. All rights reserved.</p>
+                    <img src="Robo Single Colour no bg 1.png" alt="Piorate Ventures" class="footer-logo">
+                    <p>© 2025 Piorate Ventures. All rights reserved.</p>
                 </div>
                 <div class="footer-links">
                     <a href="#services">Services</a>
@@ -246,6 +260,9 @@
     <script type="module" src="scroll-effects.js"></script>
     <script type="module" src="animations.js"></script>
     <script type="module" src="main.js"></script>
+
+
+    <script src="form-handler.js"></script>
 </body>
 
 </html>
