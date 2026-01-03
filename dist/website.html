@@ -4,16 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Web Development | AI Agency</title>
+    <meta name="description"
+        content="Professional Website Development by Piorate Ventures. We build stunning, high-performance websites that convert visitors into customers. Custom web solutions for businesses.">
+    <title>AI Web Development | Piorate Ventures</title>
     <link rel="icon" type="image/svg+xml"
-        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-  <script type="module" crossorigin src="./assets/preloader-B5G7lTkA.js"></script>
-  <script type="module" crossorigin src="./assets/detail-animations-BZ6RLO-0.js"></script>
-  <script type="module" crossorigin src="./assets/portfolio-animations-EqRkKYUl.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/preloader-CCSuVd0M.css">
-  <link rel="stylesheet" crossorigin href="./assets/detail-animations-COIW3xL1.css">
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+  <script type="module" crossorigin src="./assets/mobile-optimizations-DbOTd-CC.js"></script>
+  <script type="module" crossorigin src="./assets/detail-animations-DDS9vAa4.js"></script>
+  <script type="module" crossorigin src="./assets/portfolio-animations-CxCergmg.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/mobile-optimizations-B5DU0tJy.css">
+  <link rel="stylesheet" crossorigin href="./assets/detail-animations-wl8h9vMT.css">
 </head>
 
 <body class="detail-page">
@@ -21,7 +21,7 @@
     <div id="preloader">
         <div class="loader-content">
             <div class="loader-circle"></div>
-            <div class="loader-text">AI Agency</div>
+            <div class="loader-text">Piorate Ventures</div>
         </div>
     </div>
 
@@ -41,11 +41,11 @@
                 <div class="marquee-item">WEB DEVELOPMENT</div>
             </div>
             <div class="detail-content-wrapper fade-up">
-                <span class="premium-badge">Next-Gen Web</span>
-                <h1 class="premium-title">Immersive<br>Experiences</h1>
+                <span class="premium-badge">Professional Website Building</span>
+                <h1 class="premium-title">Websites That<br>Convert</h1>
                 <p class="premium-subtitle">
-                    Crafting award-winning digital destinations powered by artificial intelligence.<br>
-                    Where aesthetic perfection meets algorithmic performance.
+                    We build stunning, high-performance websites that turn your vision into reality.<br>
+                    From landing pages to e-commerce platforms, get a website that works as hard as you do.
                 </p>
                 <div class="scroll-indicator">
                     <div class="mouse">
@@ -375,11 +375,18 @@
         <!-- CTA Section -->
         <section class="container parallax-section">
             <div class="cta-content fade-up">
-                <h2>Build Your Legacy</h2>
-                <p>Create a digital presence that echoes through time.</p>
-                <div class="cta-buttons">
-                    <button class="btn btn-primary btn-large">Start the Project</button>
-                </div>
+                <h2>Join Now & <span class="glow-text">We'll Contact You</span></h2>
+                <p>Leave your details below and our team will reach out within 24 hours.</p>
+                <form id="contactForm" class="contact-form service-form">
+                    <input type="text" id="contactName" name="name" placeholder="Your Name" class="input" required>
+                    <input type="email" id="contactEmail" name="email" placeholder="Your Email" class="input" required>
+                    <input type="tel" id="contactPhone" name="phone" placeholder="Your Phone (optional)" class="input">
+                    <textarea id="contactMessage" name="message" placeholder="Tell us about your project..."
+                        class="input" required></textarea>
+                    <button type="submit" id="submitBtn" class="btn btn-primary btn-large">Submit & Get
+                        Contacted</button>
+                    <div id="formStatus" class="form-status"></div>
+                </form>
             </div>
         </section>
 
@@ -388,8 +395,8 @@
             <div class="container">
                 <div class="footer-content">
                     <div class="footer-brand">
-                        <img src="./assets/Robo%20Single%20Colour%20no%20bg%201-CJ-lvpWY.png" alt="AI Agency" class="footer-logo">
-                        <p>© 2025 AI Agency. All rights reserved.</p>
+                        <img src="./assets/profile-DbEGxbnE.jpg" alt="Piorate Ventures" class="footer-logo profile-logo">
+                        <p>© 2025 Piorate Ventures. All rights reserved.</p>
                     </div>
                     <div class="footer-links">
                         <a href="index.html#services">Services</a>
@@ -401,7 +408,9 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <script src="form-handler.js"></script>
 </body>
 
 </html>
