@@ -203,6 +203,15 @@ h6 {
     border-bottom: var(--glass-border);
     display: flex;
     align-items: center;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.navbar.scrolled {
+    background: rgba(10, 5, 21, 0.9);
+    height: 70px;
+    box-shadow: 0 4px 30px rgba(139, 92, 246, 0.3);
+    border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+    backdrop-filter: blur(20px);
 }
 
 .navbar .container {
@@ -241,15 +250,38 @@ h6 {
 
 .nav-cta {
     padding: 0.6rem 1.5rem;
-    background: rgba(139, 92, 246, 0.1);
+    background: linear-gradient(135deg, rgba(34, 211, 238, 0.1), rgba(139, 92, 246, 0.1));
     border: 1px solid rgba(139, 92, 246, 0.3);
     border-radius: 50px;
     color: var(--color-secondary);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.nav-cta::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(139, 92, 246, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+    z-index: -1;
+}
+
+.nav-cta:hover::before {
+    width: 300%;
+    height: 300%;
 }
 
 .nav-cta:hover {
-    background: rgba(139, 92, 246, 0.2);
-    box-shadow: 0 0 15px rgba(139, 92, 246, 0.2);
+    color: var(--color-white);
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
 }
 
 /* ==========================================================================
@@ -772,30 +804,22 @@ textarea.input {
 
 @media (max-width: 768px) {
 
-    /* Navbar & Mobile Menu */
+    /* Mobile Menu Logic moved to mobile-optimizations.css */
     .mobile-menu-btn {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 30px;
-        height: 21px;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        z-index: 1001;
+        display: none !important;
     }
 
     .mobile-menu-btn span {
         width: 100%;
-        height: 3px;
+        height: 2px;
         background: var(--color-white);
-        border-radius: 3px;
-        transition: all 0.3s ease;
+        border-radius: 2px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     /* Hamburger Animation */
     .mobile-menu-btn.active span:nth-child(1) {
-        transform: translateY(9px) rotate(45deg);
+        transform: translateY(8px) rotate(45deg);
     }
 
     .mobile-menu-btn.active span:nth-child(2) {
@@ -803,40 +827,52 @@ textarea.input {
     }
 
     .mobile-menu-btn.active span:nth-child(3) {
-        transform: translateY(-9px) rotate(-45deg);
+        transform: translateY(-8px) rotate(-45deg);
     }
 
     .nav-menu {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 100%;
-        height: 100vh;
-        background: rgba(15, 23, 42, 0.98);
-        backdrop-filter: blur(20px);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transition: 0.4s ease;
-        padding: 2rem;
-        z-index: 1000;
-        gap: 2rem;
-        /* Increased gap for touch targets */
-    }
-
-    .nav-menu.active {
-        right: 0;
+        /* Reset for mobile inline layout */
+        display: none;
     }
 
     .nav-link {
-        font-size: 1.5rem;
-        /* Larger font for mobile */
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.4s ease;
+    }
+
+    .nav-menu.active .nav-link {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Staggered link animations */
+    .nav-menu.active li:nth-child(1) .nav-link {
+        transition-delay: 0.2s;
+    }
+
+    .nav-menu.active li:nth-child(2) .nav-link {
+        transition-delay: 0.3s;
+    }
+
+    .nav-menu.active li:nth-child(3) .nav-link {
+        transition-delay: 0.4s;
     }
 
     .nav-cta {
-        width: 100%;
+        width: auto;
+        min-width: 200px;
         text-align: center;
         margin-top: 1rem;
+        padding: 1rem 2.5rem;
+        font-size: 1.2rem;
+    }
+
+    .no-scroll {
+        overflow: hidden;
     }
 
     /* Hero Section Mobile */

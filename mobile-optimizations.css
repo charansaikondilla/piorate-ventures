@@ -113,76 +113,120 @@
     }
 
     /* ==================================
-       NAVBAR - Mobile
+       NAVBAR - Mobile (Floating Premium Version)
        ================================== */
     .navbar {
-        height: 70px;
-        padding: 0 0.5rem;
+        top: 15px;
+        left: 5%;
+        width: 90%;
+        height: 60px;
+        border-radius: 30px;
+        background: rgba(15, 23, 42, 0.85);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        padding: 0 1rem;
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .navbar.scrolled {
+        top: 10px;
+        height: 55px;
+        background: rgba(10, 5, 21, 0.92);
+        box-shadow: 0 15px 35px rgba(139, 92, 246, 0.4);
+        border-color: rgba(139, 92, 246, 0.3);
     }
 
     .nav-brand {
-        font-size: 1.2rem;
-        gap: 0.5rem;
+        font-size: 1.1rem;
+        gap: 0.6rem;
+        flex: 0 0 auto;
+    }
+
+    /* Hide brand text on smaller mobile to save space for links */
+    @media (max-width: 500px) {
+        .brand-text {
+            display: none;
+        }
     }
 
     .nav-logo {
-        height: 32px;
+        height: 30px;
+        border-radius: 50%;
     }
 
     .brand-text {
-        font-size: 1.1rem;
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: -0.5px;
     }
 
-    /* Mobile menu improvements */
-    .nav-menu {
-        gap: 2.5rem;
-        background: rgba(10, 5, 21, 0.98);
+    /* Inline Row Navigation for Mobile - High Specificity */
+    .navbar .container .nav-menu {
+        position: static !important;
+        width: auto !important;
+        height: auto !important;
+        background: transparent !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        flex-direction: row !important;
+        justify-content: flex-end !important;
+        align-items: center !important;
+        gap: clamp(0.3rem, 2vw, 0.8rem) !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        display: flex !important;
+        flex: 1 !important;
+        transition: none !important;
+        right: auto !important;
+        opacity: 1 !important;
+        visibility: visible !important;
     }
 
-    .nav-menu.active {
-        display: flex;
-        animation: slideInRight 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    @keyframes slideInRight {
-        from {
-            right: -100%;
-            opacity: 0;
-        }
-
-        to {
-            right: 0;
-            opacity: 1;
-        }
+    .navbar .container .nav-menu li {
+        list-style: none !important;
+        display: block !important;
     }
 
     .nav-link {
-        font-size: 1.4rem;
-        padding: 0.5rem 0;
-        position: relative;
-        overflow: hidden;
+        font-size: clamp(0.7rem, 2.8vw, 0.85rem) !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.1px !important;
+        opacity: 1 !important;
+        transform: none !important;
+        padding: 0.4rem 0.5rem !important;
+        color: rgba(255, 255, 255, 0.95) !important;
+        white-space: nowrap !important;
+        border-radius: 20px !important;
+        transition: all 0.3s ease !important;
+        display: inline-block !important;
     }
 
-    .nav-link::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: var(--gradient-text);
-        transition: width 0.3s ease;
+    .nav-link:active {
+        background: rgba(139, 92, 246, 0.25) !important;
+        color: var(--color-secondary) !important;
     }
 
-    .nav-link:active::after {
-        width: 100%;
+    .nav-link.nav-cta {
+        width: auto !important;
+        min-width: auto !important;
+        margin-top: 0 !important;
+        padding: 0.5rem 0.8rem !important;
+        font-size: clamp(0.7rem, 2.8vw, 0.85rem) !important;
+        background: var(--gradient-text) !important;
+        border: none !important;
+        border-radius: 20px !important;
+        color: var(--color-white) !important;
+        box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4) !important;
+        text-align: center !important;
     }
 
-    .nav-cta {
-        width: 80%;
-        max-width: 280px;
-        padding: 1rem 2rem;
-        font-size: 1.1rem;
+    /* Hide hamburger logic entirely */
+    .mobile-menu-btn {
+        display: none !important;
     }
 
     /* ==================================
