@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --racing-red: #DC0000;
+  --racing-black: #0A0A0A;
+  --racing-gray-900: #1A1A1A;
+  --racing-gray-800: #2A2A2A;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--racing-black);
+  color: white;
+  font-family: 'Rajdhani', sans-serif;
+  overflow-x: hidden;
+}
+
+@layer utilities {
+  .racing-gradient {
+    background: linear-gradient(135deg, #DC0000 0%, #8B0000 100%);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+  }
+
+  .motion-blur {
+    filter: blur(0px);
+    transition: filter 0.3s ease;
+  }
+
+  .motion-blur:hover {
+    filter: blur(1px);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 10px rgba(220, 0, 0, 0.5),
+                 0 0 20px rgba(220, 0, 0, 0.3);
+  }
+}
+
+@layer components {
+  .racing-button {
+    @apply px-8 py-4 racing-gradient text-white font-racing font-bold uppercase tracking-wider rounded-lg;
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-2xl;
+    @apply border-2 border-transparent hover:border-white;
+  }
+}
+
+/* Better focus states for accessibility */
+input:focus,
+button:focus {
+  outline: 2px solid var(--racing-red);
+  outline-offset: 2px;
+}
+
+/* Disable transitions for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Safe area for iOS */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .pb-safe {
+    padding-bottom: max(3rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--racing-gray-900);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--racing-red);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF0000;
+}
