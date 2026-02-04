@@ -1,0 +1,56 @@
+/* Add these styles to style.css to support the new detailed pages */
+
+.card-icon-wrapper {
+    margin-bottom: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: rgba(139, 92, 246, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-icon-wrapper::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(34, 211, 238, 0.2) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.premium-card:hover .card-icon-wrapper {
+    background: rgba(34, 211, 238, 0.15);
+    border-color: var(--color-cyan);
+    transform: translateY(-5px) scale(1.1) rotate(5deg);
+    box-shadow: 0 10px 20px rgba(34, 211, 238, 0.2);
+}
+
+.premium-card:hover .card-icon-wrapper::after {
+    opacity: 1;
+}
+
+.card-icon {
+    width: 32px;
+    height: 32px;
+    color: var(--color-cyan);
+    z-index: 1;
+    filter: drop-shadow(0 0 5px rgba(34, 211, 238, 0.5));
+}
+
+.step-visual svg {
+    color: var(--color-magenta);
+    filter: drop-shadow(0 0 10px rgba(217, 70, 239, 0.5));
+    transition: all 0.5s ease;
+}
+
+.workflow-step:hover .step-visual svg {
+    transform: scale(1.2);
+    color: var(--color-cyan);
+    filter: drop-shadow(0 0 20px rgba(34, 211, 238, 0.6));
+}
